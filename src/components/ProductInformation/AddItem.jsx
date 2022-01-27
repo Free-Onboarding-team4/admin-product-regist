@@ -4,12 +4,12 @@ import styled from 'styled-components';
 
 const AddItem = () => {
   return (
-    <form>
+    <div>
       <TitleInp type="text" placeholder="항목 제목 자유 입력" />
       <DescInp type="text" placeholder="내용을 입력해주세요." />
       <ItemDel type="button">삭제</ItemDel>
       <ItemAdd type="button">+ 항목 추가</ItemAdd>
-    </form>
+    </div>
   );
 };
 

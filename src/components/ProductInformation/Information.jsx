@@ -6,40 +6,38 @@ const Information = () => {
   return (
     <div>
       <Title>정보고시 생성 순서</Title>
-      <form>
-        <ul>
-          <ListItem>
-            <InputTitle>제품명 / 중량</InputTitle>
-            <Input type="text" placeholder="제품명 / 중량을 입력해 주세요." />
-          </ListItem>
-          <ListItem>
-            <InputTitle>원산지 / 원재료 함량</InputTitle>
-            <Input
-              type="text"
-              placeholder="원산지 / 원재 함량을 입력해 주세요."
-            />
-          </ListItem>
-          <ListItem>
-            <InputTitle>등급</InputTitle>
-            <Input
-              type="text"
-              placeholder="등급 (근내지방도 수치)를 입력해 주세요."
-            />
-          </ListItem>
-          <ListItem>
-            <InputTitle>보관</InputTitle>
-            <Input type="text" placeholder="보관 방식을 입력해 주세요." />
-          </ListItem>
-          <ListItem>
-            <InputTitle>식품 유형</InputTitle>
-            <Input
-              type="text"
-              placeholder="식품 유형을 입력해 주세요. (ex) 포장육"
-            />
-          </ListItem>
-        </ul>
-        <InfoDelBtn type="button">삭제</InfoDelBtn>
-      </form>
+      <ul>
+        <ListItem>
+          <InputTitle>제품명 / 중량</InputTitle>
+          <Input type="text" placeholder="제품명 / 중량을 입력해 주세요." />
+        </ListItem>
+        <ListItem>
+          <InputTitle>원산지 / 원재료 함량</InputTitle>
+          <Input
+            type="text"
+            placeholder="원산지 / 원재 함량을 입력해 주세요."
+          />
+        </ListItem>
+        <ListItem>
+          <InputTitle>등급</InputTitle>
+          <Input
+            type="text"
+            placeholder="등급 (근내지방도 수치)를 입력해 주세요."
+          />
+        </ListItem>
+        <ListItem>
+          <InputTitle>보관</InputTitle>
+          <Input type="text" placeholder="보관 방식을 입력해 주세요." />
+        </ListItem>
+        <ListItem>
+          <InputTitle>식품 유형</InputTitle>
+          <Input
+            type="text"
+            placeholder="식품 유형을 입력해 주세요. (ex) 포장육"
+          />
+        </ListItem>
+      </ul>
+      <InfoDelBtn type="button">삭제</InfoDelBtn>
     </div>
   );
 };
