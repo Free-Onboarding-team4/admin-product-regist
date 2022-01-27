@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { InnerOption } from './InnerOption';
 import { OptionImage } from './OptionImage';
 import { DeleteButton } from './DeleteButton';
+import { COLOR } from 'constants';
 
 export const OptionSet = ({ setOptionSetCount }) => {
   const [innerCount, setInnerCount] = useState([0]);
@@ -10,14 +11,25 @@ export const OptionSet = ({ setOptionSetCount }) => {
     setOptionSetCount(count => count - 1);
     console.log('clicked!');
   };
+  const addInnerOption = () => {
+    let countArr = [...innerCount];
+    countArr.push(Math.random());
+    setInnerCount(countArr);
+    return;
+  };
   return (
     <>
       <SetContainer>
         <OptionImage />
         {innerCount.map(el => (
-          <InnerOption innerCount={innerCount} setInnerCount={setInnerCount} />
+          <InnerOption
+            key={el}
+            innerCount={innerCount}
+            setInnerCount={setInnerCount}
+          />
         ))}
         <DeleteButton onClick={handleDelete} />
+        <AddButton onClick={addInnerOption}>+ 옵션 추가</AddButton>
       </SetContainer>
     </>
   );
@@ -29,8 +41,8 @@ const SetContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 90%;
-  height: 50rem;
-  padding: 1em;
+  min-height: 40rem;
+  padding: 1em 1em 4em 1em;
   background-color: #fff;
   flex-shrink: 0;
   border-radius: 5px;
@@ -38,9 +50,19 @@ const SetContainer = styled.div`
   &:not(:last-child) {
     margin-bottom: 7rem;
   }
-  & > button {
+  & > button:not(:last-child) {
     position: absolute;
-    top: -5%;
+    top: -7%;
     right: 0;
   }
+`;
+const AddButton = styled.button`
+  position: absolute;
+  bottom: 1%;
+  width: 98.5%;
+  height: 3rem;
+  padding: 1em;
+  border-radius: 5px;
+  border: 1px solid ${COLOR.MAIN};
+  color: ${COLOR.MAIN};
 `;
