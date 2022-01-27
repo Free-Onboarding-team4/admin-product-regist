@@ -1,18 +1,45 @@
 import { COLOR } from 'constants';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const AddItem = () => {
+  const [items, setItems] = useState([0]);
+
+  const onAddDel = num => {
+    let countArr = [...items];
+    let counter = countArr.slice(-1)[0];
+    counter += num;
+    if (num > 0) {
+      countArr.push(counter);
+    } else {
+      countArr.pop(counter);
+    }
+    setItems(countArr);
+    console.log(items);
+  };
+
   return (
     <div>
-      <TitleInp type="text" placeholder="항목 제목 자유 입력" />
-      <DescInp type="text" placeholder="내용을 입력해주세요." />
-      <ItemDel type="button">삭제</ItemDel>
-      <ItemAdd type="button">+ 항목 추가</ItemAdd>
+      {items &&
+        items.map((item, i) => (
+          <Item key={`item-key-${i}`}>
+            <TitleInp type="text" placeholder="항목 제목 자유 입력" />
+            <DescInp type="text" placeholder="내용을 입력해주세요." />
+            <ItemDel type="button" onClick={e => onAddDel(-1)}>
+              삭제
+            </ItemDel>
+          </Item>
+        ))}
+      <ItemAdd type="button" onClick={e => onAddDel(1)}>
+        + 항목 추가
+      </ItemAdd>
     </div>
   );
 };
 
+const Item = styled.div`
+  margin-bottom: 20px;
+`;
 const TitleInp = styled.input`
   width: 32%;
   height: 40px;
@@ -35,7 +62,6 @@ const ItemDel = styled.button`
   border: 1px solid ${COLOR.BG};
 `;
 const ItemAdd = styled.button`
-  margin-top: 20px;
   height: 40px;
   padding: 0 20px;
   color: ${COLOR.MAIN};

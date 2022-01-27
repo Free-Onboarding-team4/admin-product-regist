@@ -1,17 +1,23 @@
 import { COLOR } from 'constants';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import AddItem from './AddItem';
 import Information from './Information';
 
 const ProductInformation = () => {
+  const [createdNum, setCreatedNum] = useState(0);
+
+  const onClickAdd = () => {
+    setCreatedNum(createdNum + 1);
+  };
+
   return (
     <Container>
       <InformationContainer>
-        <Information />
+        <Information createdNum={createdNum} />
         <AddItem />
       </InformationContainer>
-      <Add>+ 정보고시 추가</Add>
+      <Add onClick={onClickAdd}>+ 정보고시 추가</Add>
     </Container>
   );
 };

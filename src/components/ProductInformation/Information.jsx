@@ -1,11 +1,10 @@
 import { COLOR } from 'constants';
-import React from 'react';
 import styled from 'styled-components';
 
-const Information = () => {
+const Information = ({ createdNum }) => {
   return (
     <div>
-      <Title>정보고시 생성 순서</Title>
+      <Title>정보고시 {createdNum}</Title>
       <ul>
         <ListItem>
           <InputTitle>제품명 / 중량</InputTitle>
