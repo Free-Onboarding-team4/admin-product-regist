@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { STYLE, COLOR } from 'constants';
 
-export const SectionBlock = ({ title, children, bg }) => {
+export const SectionBlock = ({ bg, title, children }) => {
   return (
     <SectionBlockContainer>
       <SectionTitle>{title}</SectionTitle>
@@ -12,6 +12,7 @@ export const SectionBlock = ({ title, children, bg }) => {
 };
 
 const SectionBlockContainer = styled.section`
+  position: relative;
   border: ${STYLE.BORDER};
   & + section {
     margin-top: 20px;
