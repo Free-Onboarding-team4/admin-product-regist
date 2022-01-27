@@ -5,3 +5,7 @@ export const COLOR = {
   BG: '#E3E3E3',
   BG_LIGHT: '#EFEFEF',
 };
+
+export const STYLE = {
+  BORDER: '1px solid #DDD',
+};
