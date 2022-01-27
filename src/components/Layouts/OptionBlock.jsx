@@ -15,7 +15,6 @@ export default OptionBlock;
 
 const OptionBlockContainer = styled.div`
   display: flex;
-  /* border: ${STYLE.BORDER}; */
 
   & + div {
     border-top: ${STYLE.BORDER};
