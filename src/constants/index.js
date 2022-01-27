@@ -4,6 +4,7 @@ export const COLOR = {
   TAG: '#E8F7D4',
   BG: '#E3E3E3',
   BG_LIGHT: '#EFEFEF',
+  RED: '#DD3534',
 };
 
 export const STYLE = {
