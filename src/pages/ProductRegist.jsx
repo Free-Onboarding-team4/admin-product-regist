@@ -1,6 +1,6 @@
 import React from 'react';
 import BasicInformation from './jy';
-import { PageBlock } from 'components';
+import { PageBlock } from 'components/Layouts';
 
 const ProductRegist = () => {
   return (
