@@ -7,12 +7,18 @@ import { AdditionalOption } from './AdditionalOption';
 import { AiOutlinePlusSquare } from 'react-icons/ai';
 import { DeleteButton } from './DeleteButton';
 
-export const InnerOption = () => {
+export const InnerOption = ({ innerCount, setInnerCount }) => {
   const [additionCount, setAdditionCount] = useState([]);
   const addSemiOption = () => {
     let countArr = [...additionCount];
     countArr.push(Math.random());
     setAdditionCount(countArr);
+  };
+  const addInnerOption = () => {
+    let countArr = [...innerCount];
+    countArr.push(Math.random());
+    setInnerCount(countArr);
+    return;
   };
   return (
     <InnerOptionBox>
@@ -38,13 +44,13 @@ export const InnerOption = () => {
         </SelectBox>
       </SecondLineOption>
       <AddSemiOption>
-        <AiOutlinePlusSquare />
+        <AiOutlinePlusSquare onClick={addSemiOption} />
         <span>추가 옵션 상품 추가</span>
       </AddSemiOption>
       {additionCount.map(el => (
         <AdditionalOption key={el} />
       ))}
-      <AddButton onClick={addSemiOption}>+ 옵션 추가</AddButton>
+      <AddButton onClick={addInnerOption}>+ 옵션 추가</AddButton>
     </InnerOptionBox>
   );
 };

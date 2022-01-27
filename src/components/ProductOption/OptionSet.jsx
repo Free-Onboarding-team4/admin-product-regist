@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { InnerOption } from './InnerOption';
 import { OptionImage } from './OptionImage';
 import { DeleteButton } from './DeleteButton';
 
 export const OptionSet = ({ setOptionSetCount }) => {
+  const [innerCount, setInnerCount] = useState([0]);
   const handleDelete = () => {
     setOptionSetCount(count => count - 1);
     console.log('clicked!');
@@ -13,7 +14,9 @@ export const OptionSet = ({ setOptionSetCount }) => {
     <>
       <SetContainer>
         <OptionImage />
-        <InnerOption />
+        {innerCount.map(el => (
+          <InnerOption innerCount={innerCount} setInnerCount={setInnerCount} />
+        ))}
         <DeleteButton onClick={handleDelete} />
       </SetContainer>
     </>
