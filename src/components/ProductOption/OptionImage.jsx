@@ -15,7 +15,8 @@ const ImageBox = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 50%;
+  min-height: 20rem;
+  height: 100%;
   margin-bottom: 1rem;
   padding: 0.5em;
   background-color: ${COLOR.BG};

@@ -1,5 +1,4 @@
 import { Input } from 'components';
-import { COLOR } from 'constants';
 import { STYLE } from 'constants';
 import React, { useState } from 'react';
 import styled from 'styled-components';
@@ -13,12 +12,6 @@ export const InnerOption = ({ innerCount, setInnerCount }) => {
     let countArr = [...additionCount];
     countArr.push(Math.random());
     setAdditionCount(countArr);
-  };
-  const addInnerOption = () => {
-    let countArr = [...innerCount];
-    countArr.push(Math.random());
-    setInnerCount(countArr);
-    return;
   };
   return (
     <InnerOptionBox>
@@ -50,7 +43,6 @@ export const InnerOption = ({ innerCount, setInnerCount }) => {
       {additionCount.map(el => (
         <AdditionalOption key={el} />
       ))}
-      <AddButton onClick={addInnerOption}>+ 옵션 추가</AddButton>
     </InnerOptionBox>
   );
 };
@@ -60,23 +52,20 @@ const InnerOptionBox = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   width: 100%;
-  height: 50%;
+  height: 100%;
   padding: 0.5em;
   border: ${STYLE.BORDER};
   border-radius: 5px;
   & > button {
     margin-left: auto;
   }
+  & > *:not(:first-child) {
+    margin-bottom: 1rem;
+  }
+  & + div {
+    margin-top: 1rem;
+  }
 `;
-// const DeleteButton = styled.button`
-//   display: block;
-//   height: 2rem;
-//   width: 4rem;
-//   border-radius: 5px;
-//   color: ${COLOR.RED};
-//   border: 1px solid ${COLOR.RED};
-//   margin-left: auto;
-// `;
 const SecondLineOption = styled.ul`
   display: flex;
   align-items: center;
@@ -105,10 +94,4 @@ const SelectBox = styled.select`
   display: flex;
   width: 6rem;
   height: 3rem;
-`;
-const AddButton = styled.button`
-  width: 100%;
-  padding: 1em;
-  border: 1px solid ${COLOR.MAIN};
-  color: ${COLOR.MAIN};
 `;
