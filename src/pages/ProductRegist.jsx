@@ -1,8 +1,13 @@
 import React from 'react';
-import Layout from 'components/ProductLayout/Layout';
+import BasicInformation from './jy';
+import { PageBlock } from 'components';
 
 const ProductRegist = () => {
-  return <Layout name="상품 등록"></Layout>;
+  return (
+    <PageBlock title="상품 등록">
+      <BasicInformation />
+    </PageBlock>
+  );
 };
 
 export default ProductRegist;

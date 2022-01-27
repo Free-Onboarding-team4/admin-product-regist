@@ -48,6 +48,17 @@ a{
   text-decoration: none;
   color: #000;
 }
+button, input {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	outline: inherit;
+}
+button{
+	cursor: pointer;
+}
 `;
 
 export default GlobalStyles;
