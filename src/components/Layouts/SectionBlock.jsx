@@ -13,7 +13,6 @@ export const SectionBlock = ({ title, children, bg }) => {
 
 const SectionBlockContainer = styled.section`
   border: ${STYLE.BORDER};
-
   & + section {
     margin-top: 20px;
   }
