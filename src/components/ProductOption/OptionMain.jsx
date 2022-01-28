@@ -50,6 +50,7 @@ const AddOptionSetBtn = styled.button`
   position: absolute;
   border: 1px solid ${COLOR.MAIN};
   color: ${COLOR.MAIN};
+  border-radius: 5px;
   padding: 13.5px 0.5em;
   top: 0;
   right: 0;

@@ -2,6 +2,7 @@ import { Input } from './Input';
 import React from 'react';
 import styled from 'styled-components';
 import { DeleteButton } from './DeleteButton';
+import { InputNumber } from './InputNumber';
 export const AdditionalOption = ({ additionCount, setAdditionCount }) => {
   return (
     <AddOptBox>
@@ -9,7 +10,7 @@ export const AdditionalOption = ({ additionCount, setAdditionCount }) => {
         <Input placeholder={'추가 옵션명 (필수)'} fontS />
       </li>
       <li>
-        <Input placeholder={'추가 옵션 정상가 (필수)'} fontS />
+        <InputNumber placeholder={'추가 옵션 정상가 (필수)'} fontS />
         <span>원</span>
       </li>
       <DeleteButton items={additionCount} setItems={setAdditionCount} />

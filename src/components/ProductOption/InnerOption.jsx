@@ -1,4 +1,5 @@
 import { Input } from './Input';
+import { InputNumber } from './InputNumber';
 import { STYLE } from 'constants';
 import React, { useState } from 'react';
 import styled from 'styled-components';
@@ -23,16 +24,16 @@ export const InnerOption = ({
       <Input placeholder={'옵션명을 입력해 주세요'} fontS />
       <SecondLineOption>
         <li>
-          <Input placeholder={'상품 정상가 (필수)'} fontS />
+          <InputNumber placeholder={'상품 정상가 (필수)'} fontS />
           <span>원</span>
         </li>
         <li>할인율%</li>
         <li>
-          <Input placeholder={'상품 판매가 (필수)'} fontS />
+          <InputNumber placeholder={'상품 판매가 (필수)'} fontS />
           <span>원</span>
         </li>
         <li>
-          <Input placeholder={'재고 (필수)'} fontS />
+          <InputNumber placeholder={'재고 (필수)'} fontS />
           <span>개</span>
         </li>
         <SelectBox name="tax">
