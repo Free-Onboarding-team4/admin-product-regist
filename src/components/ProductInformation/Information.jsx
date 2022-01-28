@@ -1,7 +1,8 @@
 import { COLOR } from 'constants';
 import styled from 'styled-components';
+import { onAddDel } from 'utils/onAddDel';
 
-const Information = ({ createdNum }) => {
+const Information = ({ createdNum, items, setItems }) => {
   return (
     <div>
       <Title>정보고시 {createdNum}</Title>
@@ -36,7 +37,9 @@ const Information = ({ createdNum }) => {
           />
         </ListItem>
       </ul>
-      <InfoDelBtn type="button">삭제</InfoDelBtn>
+      <InfoDelBtn type="button" onClick={e => onAddDel(-1, items, setItems)}>
+        삭제
+      </InfoDelBtn>
     </div>
   );
 };

@@ -1,22 +1,10 @@
 import { COLOR } from 'constants';
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { onAddDel } from 'utils/onAddDel';
 
 const AddItem = () => {
   const [items, setItems] = useState([0]);
-
-  const onAddDel = num => {
-    let countArr = [...items];
-    let counter = countArr.slice(-1)[0];
-    counter += num;
-    if (num > 0) {
-      countArr.push(counter);
-    } else {
-      countArr.pop(counter);
-    }
-    setItems(countArr);
-    console.log(items);
-  };
 
   return (
     <div>
@@ -25,12 +13,12 @@ const AddItem = () => {
           <Item key={`item-key-${i}`}>
             <TitleInp type="text" placeholder="항목 제목 자유 입력" />
             <DescInp type="text" placeholder="내용을 입력해주세요." />
-            <ItemDel type="button" onClick={e => onAddDel(-1)}>
+            <ItemDel type="button" onClick={e => onAddDel(-1, items, setItems)}>
               삭제
             </ItemDel>
           </Item>
         ))}
-      <ItemAdd type="button" onClick={e => onAddDel(1)}>
+      <ItemAdd type="button" onClick={e => onAddDel(1, items, setItems)}>
         + 항목 추가
       </ItemAdd>
     </div>
