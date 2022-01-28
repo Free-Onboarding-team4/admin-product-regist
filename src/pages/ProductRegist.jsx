@@ -1,7 +1,7 @@
 import React from 'react';
-import ProductPeriod from './ch';
 import BasicInformation from './jy';
 import { PageBlock } from 'components';
+import ProductPeriod from './ch';
 
 const ProductRegist = () => {
   return (
