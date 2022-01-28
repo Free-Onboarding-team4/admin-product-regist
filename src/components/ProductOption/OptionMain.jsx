@@ -13,7 +13,11 @@ const OptionMain = () => {
           <NoOptionText>옵션세트를 추가하여 옵션을 구성해 주세요.</NoOptionText>
         ) : (
           optionSetCount.map(el => (
-            <OptionSet key={el} setOptionSetCount={setOptionSetCount} />
+            <OptionSet
+              key={el}
+              optionSetCount={optionSetCount}
+              setOptionSetCount={setOptionSetCount}
+            />
           ))
         )}
       </MainContainer>

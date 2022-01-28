@@ -7,11 +7,19 @@ import { AiOutlinePlusSquare } from 'react-icons/ai';
 import { DeleteButton } from './DeleteButton';
 import { onAddDel } from 'utils/onAddDel';
 
-export const InnerOption = () => {
+export const InnerOption = ({
+  innerCount,
+  setInnerCount,
+  optionSetCount,
+  setOptionSetCount,
+}) => {
   const [additionCount, setAdditionCount] = useState([]);
   return (
     <InnerOptionBox>
-      <DeleteButton />
+      <DeleteButton
+        items={innerCount.length === 1 ? optionSetCount : innerCount}
+        setItems={innerCount.length === 1 ? setOptionSetCount : setInnerCount}
+      />
       <Input placeholder={'옵션명을 입력해 주세요'} fontS />
       <SecondLineOption>
         <li>
@@ -39,7 +47,11 @@ export const InnerOption = () => {
         <span>추가 옵션 상품 추가</span>
       </AddSemiOption>
       {additionCount.map(el => (
-        <AdditionalOption key={el} />
+        <AdditionalOption
+          key={el}
+          additionCount={additionCount}
+          setAdditionCount={setAdditionCount}
+        />
       ))}
     </InnerOptionBox>
   );
