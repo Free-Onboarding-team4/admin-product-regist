@@ -1,19 +1,20 @@
-import { COLOR } from 'constants';
 import React from 'react';
 import styled from 'styled-components';
 import { InnerOption } from './InnerOption';
 import { OptionImage } from './OptionImage';
+import { DeleteButton } from './DeleteButton';
 
 export const OptionSet = ({ setOptionSetCount }) => {
   const handleDelete = () => {
     setOptionSetCount(count => count - 1);
+    console.log('clicked!');
   };
   return (
     <>
       <SetContainer>
         <OptionImage />
         <InnerOption />
-        <DeleteButton onClick={handleDelete}>삭제</DeleteButton>
+        <DeleteButton onClick={handleDelete} />
       </SetContainer>
     </>
   );
@@ -25,7 +26,7 @@ const SetContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 90%;
-  height: 40rem;
+  height: 50rem;
   padding: 1em;
   background-color: #fff;
   flex-shrink: 0;
@@ -34,15 +35,9 @@ const SetContainer = styled.div`
   &:not(:last-child) {
     margin-bottom: 7rem;
   }
-`;
-const DeleteButton = styled.button`
-  position: absolute;
-  height: 2rem;
-  width: 4rem;
-  top: -10%;
-  right: 0;
-  padding: 0.5em;
-  border-radius: 5px;
-  color: ${COLOR.RED};
-  border: 1px solid ${COLOR.RED};
+  & > button {
+    position: absolute;
+    top: -5%;
+    right: 0;
+  }
 `;

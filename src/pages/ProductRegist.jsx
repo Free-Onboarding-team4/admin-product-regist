@@ -1,6 +1,6 @@
 import React from 'react';
+import BasicInformation from 'pages/jy';
 import InformationFilter from './hh';
-import BasicInfoSection from './jy';
 import { PageBlock } from 'components/Layouts';
 import ProductOption from 'pages/hj';
 

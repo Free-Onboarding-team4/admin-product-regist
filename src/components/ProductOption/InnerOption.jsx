@@ -5,15 +5,18 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { AdditionalOption } from './AdditionalOption';
 import { AiOutlinePlusSquare } from 'react-icons/ai';
+import { DeleteButton } from './DeleteButton';
 
 export const InnerOption = () => {
-  const [additionCount, setAdditionCount] = useState(0);
+  const [additionCount, setAdditionCount] = useState([]);
   const addSemiOption = () => {
-    setAdditionCount(count => count + 1);
+    let countArr = [...additionCount];
+    countArr.push(Math.random());
+    setAdditionCount(countArr);
   };
   return (
     <InnerOptionBox>
-      <DeleteButton>삭제</DeleteButton>
+      <DeleteButton />
       <Input placeholder={'옵션명을 입력해 주세요'} fontS />
       <SecondLineOption>
         <li>
@@ -38,11 +41,9 @@ export const InnerOption = () => {
         <AiOutlinePlusSquare />
         <span>추가 옵션 상품 추가</span>
       </AddSemiOption>
-      {Array({ additionCount })
-        .fill(1)
-        .map(i => (
-          <AdditionalOption key={i} />
-        ))}
+      {additionCount.map(el => (
+        <AdditionalOption key={el} />
+      ))}
       <AddButton onClick={addSemiOption}>+ 옵션 추가</AddButton>
     </InnerOptionBox>
   );
@@ -57,22 +58,23 @@ const InnerOptionBox = styled.div`
   padding: 0.5em;
   border: ${STYLE.BORDER};
   border-radius: 5px;
+  & > button {
+    margin-left: auto;
+  }
 `;
-const DeleteButton = styled.button`
-  display: block;
-  height: 2rem;
-  width: 4rem;
-  border-radius: 5px;
-  color: ${COLOR.RED};
-  border: 1px solid ${COLOR.RED};
-  margin-left: auto;
-  /* margin-bottom: 1rem; */
-`;
+// const DeleteButton = styled.button`
+//   display: block;
+//   height: 2rem;
+//   width: 4rem;
+//   border-radius: 5px;
+//   color: ${COLOR.RED};
+//   border: 1px solid ${COLOR.RED};
+//   margin-left: auto;
+// `;
 const SecondLineOption = styled.ul`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* margin: 1rem 0; */
   li {
     display: flex;
     align-items: center;
