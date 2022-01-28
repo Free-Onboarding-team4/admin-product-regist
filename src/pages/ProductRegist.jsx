@@ -1,9 +1,9 @@
 import React from 'react';
 import InformationFilter from './hh';
-import BasicInfoSection from './jy';
 import { PageBlock } from 'components/Layouts';
 import ProductOption from 'pages/hj';
 import ProductPeriod from './ch';
+import BasicInfoSection from './jy';
 
 const ProductRegist = () => {
   return (

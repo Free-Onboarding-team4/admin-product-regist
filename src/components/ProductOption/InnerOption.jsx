@@ -1,19 +1,21 @@
 import { Input } from 'components';
-import { COLOR } from 'constants';
 import { STYLE } from 'constants';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { AdditionalOption } from './AdditionalOption';
 import { AiOutlinePlusSquare } from 'react-icons/ai';
+import { DeleteButton } from './DeleteButton';
 
-export const InnerOption = () => {
-  const [additionCount, setAdditionCount] = useState(0);
+export const InnerOption = ({ innerCount, setInnerCount }) => {
+  const [additionCount, setAdditionCount] = useState([]);
   const addSemiOption = () => {
-    setAdditionCount(count => count + 1);
+    let countArr = [...additionCount];
+    countArr.push(Math.random());
+    setAdditionCount(countArr);
   };
   return (
     <InnerOptionBox>
-      <DeleteButton>삭제</DeleteButton>
+      <DeleteButton />
       <Input placeholder={'옵션명을 입력해 주세요'} fontS />
       <SecondLineOption>
         <li>
@@ -35,15 +37,12 @@ export const InnerOption = () => {
         </SelectBox>
       </SecondLineOption>
       <AddSemiOption>
-        <AiOutlinePlusSquare />
+        <AiOutlinePlusSquare onClick={addSemiOption} />
         <span>추가 옵션 상품 추가</span>
       </AddSemiOption>
-      {Array({ additionCount })
-        .fill(1)
-        .map(i => (
-          <AdditionalOption key={i} />
-        ))}
-      <AddButton onClick={addSemiOption}>+ 옵션 추가</AddButton>
+      {additionCount.map(el => (
+        <AdditionalOption key={el} />
+      ))}
     </InnerOptionBox>
   );
 };
@@ -53,26 +52,24 @@ const InnerOptionBox = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   width: 100%;
-  height: 50%;
+  height: 100%;
   padding: 0.5em;
   border: ${STYLE.BORDER};
   border-radius: 5px;
-`;
-const DeleteButton = styled.button`
-  display: block;
-  height: 2rem;
-  width: 4rem;
-  border-radius: 5px;
-  color: ${COLOR.RED};
-  border: 1px solid ${COLOR.RED};
-  margin-left: auto;
-  /* margin-bottom: 1rem; */
+  & > button {
+    margin-left: auto;
+  }
+  & > *:not(:first-child) {
+    margin-bottom: 1rem;
+  }
+  & + div {
+    margin-top: 1rem;
+  }
 `;
 const SecondLineOption = styled.ul`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* margin: 1rem 0; */
   li {
     display: flex;
     align-items: center;
@@ -97,10 +94,4 @@ const SelectBox = styled.select`
   display: flex;
   width: 6rem;
   height: 3rem;
-`;
-const AddButton = styled.button`
-  width: 100%;
-  padding: 1em;
-  border: 1px solid ${COLOR.MAIN};
-  color: ${COLOR.MAIN};
 `;
