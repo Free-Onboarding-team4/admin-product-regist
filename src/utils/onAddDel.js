@@ -8,5 +8,4 @@ export const onAddDel = (num, items, setItems) => {
     countArr.pop(counter);
   }
   setItems(countArr);
-  console.log(items);
 };
