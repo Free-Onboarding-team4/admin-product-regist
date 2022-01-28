@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { OptionBlock } from 'components/Layouts';
 import { STYLE } from 'constants';
 import { Input } from 'components';
+import { ImageUpload } from './';
 
 export const BasicInformation = () => {
   return (
@@ -16,8 +17,12 @@ export const BasicInformation = () => {
       <OptionBlock name="상품 구성 소개 정보">
         <Input placeholder="상품 구성 소개 정보를 입력해 주세요." />
       </OptionBlock>
-      <OptionBlock name="상품 썸네일"></OptionBlock>
-      <OptionBlock name="상품 대표 이미지"></OptionBlock>
+      <OptionBlock name="상품 썸네일">
+        <ImageUpload id="thumbnail" />
+      </OptionBlock>
+      <OptionBlock name="상품 대표 이미지">
+        <ImageUpload id="main-img" />
+      </OptionBlock>
       <OptionBlock name="상품 총 재고">NN개</OptionBlock>
     </OptionContainer>
   );
