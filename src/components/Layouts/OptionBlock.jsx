@@ -15,16 +15,16 @@ export default OptionBlock;
 
 const OptionBlockContainer = styled.div`
   display: flex;
-  /* border: ${STYLE.BORDER}; */
-
   & + div {
     border-top: ${STYLE.BORDER};
   }
 `;
 
 const OptionName = styled.div`
+  display: flex;
+  align-items: center;
   padding: 20px 10px;
-  flex-basis: 20%;
+  width: 200px;
   font-size: 15px;
   font-weight: 500;
   letter-spacing: -0.5px;
@@ -32,7 +32,8 @@ const OptionName = styled.div`
 `;
 
 const OptionContent = styled.div`
+  display: flex;
+  align-items: center;
   flex: 1;
-  padding: 20px;
-  padding-left: 8px;
+  padding: 12px 20px 12px 8px;
 `;
