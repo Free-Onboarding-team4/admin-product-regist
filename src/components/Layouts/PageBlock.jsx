@@ -16,7 +16,7 @@ export const PageBlock = ({ title, children }) => {
 
 const PageBlockContainer = styled.div`
   max-width: 1200px;
-  height: 100vh;
+  height: 100%;
   margin: 40px auto;
 `;
 
