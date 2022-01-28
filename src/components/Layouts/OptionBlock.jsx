@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { COLOR, STYLE } from 'constants';
 
-const OptionBlock = ({ name, children }) => {
+export const OptionBlock = ({ name, children }) => {
   return (
     <OptionBlockContainer>
       <OptionName>{name}</OptionName>
@@ -15,15 +15,20 @@ export default OptionBlock;
 
 const OptionBlockContainer = styled.div`
   display: flex;
+<<<<<<< HEAD
 
+=======
+>>>>>>> b6e84f62557b3d06abd79c22dc4245b0f97204cf
   & + div {
     border-top: ${STYLE.BORDER};
   }
 `;
 
 const OptionName = styled.div`
+  display: flex;
+  align-items: center;
   padding: 20px 10px;
-  flex-basis: 20%;
+  width: 200px;
   font-size: 15px;
   font-weight: 500;
   letter-spacing: -0.5px;
@@ -31,6 +36,8 @@ const OptionName = styled.div`
 `;
 
 const OptionContent = styled.div`
+  display: flex;
+  align-items: center;
   flex: 1;
-  padding: 20px 7px;
+  padding: 12px 20px 12px 8px;
 `;

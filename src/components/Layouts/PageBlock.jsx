@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { COLOR, STYLE } from 'constants';
 
-const PageBlock = ({ title, children }) => {
+export const PageBlock = ({ title, children }) => {
   return (
     <PageBlockContainer>
       <PageTitleRow>
@@ -14,11 +14,9 @@ const PageBlock = ({ title, children }) => {
   );
 };
 
-export default PageBlock;
-
 const PageBlockContainer = styled.div`
   max-width: 1200px;
-  height: 100vh;
+  height: 100%;
   margin: 40px auto;
 `;
 

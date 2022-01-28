@@ -32,14 +32,12 @@ const Input = styled.input.attrs({ type: 'radio' })`
   border: 1px solid ${COLOR.BG};
   width: 25px;
   height: 25px;
-
   :checked {
     -webkit-appearance: none;
     -moz-appearance: none;
     margin-left: 16px;
     width: 25px;
     height: 25px;
-
     border: 3px solid ${COLOR.BG};
     border-radius: 100%;
     background-color: ${COLOR.MAIN};

@@ -1,21 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import { STYLE } from 'constants';
+import { STYLE, COLOR } from 'constants';
 
-const SectionBlock = ({ title, children }) => {
+export const SectionBlock = ({ bg, title, children }) => {
   return (
     <SectionBlockContainer>
       <SectionTitle>{title}</SectionTitle>
-      <SectionContent>{children}</SectionContent>
+      <SectionContent bg={bg}>{children}</SectionContent>
     </SectionBlockContainer>
   );
 };
 
-export default SectionBlock;
-
 const SectionBlockContainer = styled.section`
+  position: relative;
   border: ${STYLE.BORDER};
-
   & + section {
     margin-top: 20px;
   }
@@ -29,4 +27,6 @@ const SectionTitle = styled.h2`
   letter-spacing: -0.5px;
 `;
 
-const SectionContent = styled.div``;
+const SectionContent = styled.div`
+  background: ${({ bg }) => bg && COLOR.BG};
+`;
