@@ -1,23 +1,23 @@
 import { COLOR } from 'constants';
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { onAddDel } from 'utils/onAddDel';
 import AddItem from './AddItem';
 import Information from './Information';
 
 const ProductInformation = () => {
-  const [createdNum, setCreatedNum] = useState(0);
-
-  const onClickAdd = () => {
-    setCreatedNum(createdNum + 1);
-  };
+  const [items, setItems] = useState([0]);
 
   return (
     <Container>
-      <InformationContainer>
-        <Information createdNum={createdNum} />
-        <AddItem />
-      </InformationContainer>
-      <Add onClick={onClickAdd}>+ 정보고시 추가</Add>
+      {items &&
+        items.map((item, i) => (
+          <InformationContainer key={`product-information-${i}`}>
+            <Information createdNum={i} items={items} setItems={setItems} />
+            <AddItem />
+          </InformationContainer>
+        ))}
+      <Add onClick={e => onAddDel(1, items, setItems)}>+ 정보고시 추가</Add>
     </Container>
   );
 };
