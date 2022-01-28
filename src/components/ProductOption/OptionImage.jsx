@@ -5,40 +5,32 @@ import styled from 'styled-components';
 import { MdCancelPresentation } from 'react-icons/md';
 export const OptionImage = () => {
   const [imgUrl, setImgUrl] = useState('');
-  const [isEnterd, setIsEntered] = useState(false);
+  const [isEntered, setIsEntered] = useState(false);
   const getImageUrl = e => {
     let file = e.target.files[0];
     let url = URL.createObjectURL(file);
     setImgUrl(url);
   };
   const handleEnter = () => {
+    if (!imgUrl) {
+      return;
+    }
     setIsEntered(el => !el);
   };
   const handleLeave = () => {
+    if (!imgUrl) {
+      return;
+    }
     setIsEntered(false);
   };
-  console.log(imgUrl);
   return (
-    <ImageBox>
+    <ImageBox onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
       {imgUrl ? (
         <>
-          <img
-            src={imgUrl}
-            alt="optionImage"
-            onMouseEnter={handleEnter}
-            onMouseLeave={handleLeave}
-            isEnterd={isEnterd}
-          />
+          <img src={imgUrl} alt="optionImage" />
           <MdCancelPresentation
-            style={{
-              position: 'absolute',
-              color: COLOR.RED,
-              fontSize: '30px',
-              top: `1%`,
-              right: '1%',
-              cursor: 'pointer',
-            }}
             onClick={() => setImgUrl('')}
+            className={isEntered ? 'active' : ''}
           />
         </>
       ) : (
@@ -76,6 +68,19 @@ const ImageBox = styled.div`
     width: 100%;
     height: 100%;
     border-radius: 5px;
+  }
+  & > svg {
+    position: absolute;
+    color: ${COLOR.RED};
+    font-size: 30px;
+    top: 1%;
+    right: 1%;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
+  }
+  & > svg.active {
+    opacity: 1;
   }
 `;
 const AddImageButton = styled.label`

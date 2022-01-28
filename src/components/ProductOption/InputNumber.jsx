@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { STYLE } from 'constants';
 
-export const InputNumber = ({ placeholder, fontS }) => {
+export const InputNumber = ({ placeholder, fontS, setPrice }) => {
   const [inputValue, setInputValue] = useState('');
   const handleInput = e => {
     let cleanString = e.target.value.split(',').join('');
@@ -10,14 +10,15 @@ export const InputNumber = ({ placeholder, fontS }) => {
       return;
     }
     if (Number(cleanString) >= 1000) {
-      setInputValue(
-        Number(cleanString).toLocaleString('en', {
-          maximumFractionDigits: 3,
-        })
-      );
+      let commaNumber = Number(cleanString).toLocaleString('en', {
+        maximumFractionDigits: 3,
+      });
+      setInputValue(commaNumber);
+      setPrice && setPrice(Number(cleanString));
       return;
     }
     setInputValue(cleanString);
+    setPrice && setPrice(Number(cleanString));
   };
   return (
     <InputBlock
