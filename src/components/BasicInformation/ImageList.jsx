@@ -1,11 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import { RiCloseLine } from 'react-icons/ri';
 
-export const ImageList = ({ imageList }) => {
+export const ImageList = ({ imageList, handleRemove }) => {
   return (
     <ImageListBlock>
       {imageList.map((item, i) => (
-        <ImageItem key={i}>{item}</ImageItem>
+        <ImageItem key={i}>
+          {item}
+          <RemoveButton onClick={handleRemove}>
+            <RiCloseLine />
+          </RemoveButton>
+        </ImageItem>
       ))}
     </ImageListBlock>
   );
@@ -22,5 +28,20 @@ const ImageItem = styled.li`
 
   & + li {
     margin-top: 15px;
+  }
+`;
+
+const RemoveButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+
+  svg {
+    font-size: 20px;
   }
 `;

@@ -16,6 +16,11 @@ export const ImageUpload = ({ id }) => {
     }
   };
 
+  const handleRemove = e => {
+    const removeImage = e.target.parentElement.parentElement.innerText;
+    setImageList(imageList.filter(img => img !== removeImage));
+  };
+
   return (
     <ImageUploadContainer>
       <ButtonWrapper>
@@ -31,7 +36,7 @@ export const ImageUpload = ({ id }) => {
           이미지 첨부
         </AddButton>
       </ButtonWrapper>
-      <ImageList imageList={imageList} />
+      <ImageList imageList={imageList} handleRemove={handleRemove} />
     </ImageUploadContainer>
   );
 };
