@@ -14,7 +14,7 @@ const ProductSale = () => {
       <br />
       <Input type="radio" name="sale" value="2" />
       <Label>판매 기간 설정</Label>
-      {/* <DateTimeCalender /> */}
+      <DateTimeCalender />
     </>
   );
 };

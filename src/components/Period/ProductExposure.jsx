@@ -14,7 +14,7 @@ const ProductExposure = () => {
       <br />
       <Input type="radio" name="exposure" value="2" />
       <Label>노출 기간 설정</Label>
-      {/* <DateTimeCalender /> */}
+      <DateTimeCalender />
     </>
   );
 };
