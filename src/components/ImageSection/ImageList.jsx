@@ -5,6 +5,7 @@ import { RiCloseLine } from 'react-icons/ri';
 export const ImageList = ({ imageList, handleRemove }) => {
   return (
     <ImageListBlock>
+      {!imageList.length && <p className="txt">image file name</p>}
       {imageList.map((item, i) => (
         <ImageItem key={i}>
           {item}
@@ -20,6 +21,12 @@ export const ImageList = ({ imageList, handleRemove }) => {
 const ImageListBlock = styled.ul`
   margin-top: 8px;
   margin-left: 40px;
+
+  .txt {
+    margin-top: 5px;
+    color: #cecece;
+    font-style: italic;
+  }
 `;
 
 const ImageItem = styled.li`

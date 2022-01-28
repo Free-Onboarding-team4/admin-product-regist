@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { OptionBlock } from 'components/Layouts';
 import { STYLE } from 'constants';
 import { Input } from 'components';
-import { ImageUpload } from './';
+import { ImageUpload } from '../ImageSection';
 
 export const BasicInformation = () => {
   return (
