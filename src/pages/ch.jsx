@@ -2,6 +2,7 @@ import React from 'react';
 import { SectionBlock, OptionBlock } from 'components/Layouts';
 import ProductExposure from 'components/Period/ProductExposure';
 import ProductSale from 'components/Period/ProductSale';
+import styled from 'styled-components';
 
 const ProductPeriod = ({ name }) => {
   return (
@@ -17,3 +18,8 @@ const ProductPeriod = ({ name }) => {
 };
 
 export default ProductPeriod;
+
+const Div = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
