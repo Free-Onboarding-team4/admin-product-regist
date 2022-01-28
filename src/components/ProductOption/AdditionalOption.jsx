@@ -3,7 +3,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { DeleteButton } from './DeleteButton';
 import { InputNumber } from './InputNumber';
-import { COLOR } from 'constants';
 export const AdditionalOption = ({ additionCount, setAdditionCount }) => {
   return (
     <AddOptBox>
