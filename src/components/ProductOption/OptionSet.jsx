@@ -4,19 +4,10 @@ import { InnerOption } from './InnerOption';
 import { OptionImage } from './OptionImage';
 import { DeleteButton } from './DeleteButton';
 import { COLOR } from 'constants';
+import { onAddDel } from 'utils/onAddDel';
 
 export const OptionSet = ({ setOptionSetCount }) => {
   const [innerCount, setInnerCount] = useState([0]);
-  const handleDelete = () => {
-    setOptionSetCount(count => count - 1);
-    console.log('clicked!');
-  };
-  const addInnerOption = () => {
-    let countArr = [...innerCount];
-    countArr.push(Math.random());
-    setInnerCount(countArr);
-    return;
-  };
   return (
     <>
       <SetContainer>
@@ -28,8 +19,10 @@ export const OptionSet = ({ setOptionSetCount }) => {
             setInnerCount={setInnerCount}
           />
         ))}
-        <DeleteButton onClick={handleDelete} />
-        <AddButton onClick={addInnerOption}>+ 옵션 추가</AddButton>
+        <DeleteButton onClick={() => onAddDel(-1, innerCount, setInnerCount)} />
+        <AddButton onClick={() => onAddDel(1, innerCount, setInnerCount)}>
+          + 옵션 추가
+        </AddButton>
       </SetContainer>
     </>
   );

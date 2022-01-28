@@ -1,4 +1,4 @@
-import { Input } from 'components';
+import { Input } from './Input';
 import React from 'react';
 import styled from 'styled-components';
 import { DeleteButton } from './DeleteButton';

@@ -1,15 +1,11 @@
 import { COLOR } from 'constants';
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { onAddDel } from 'utils/onAddDel';
 import { OptionSet } from './OptionSet';
 
 const OptionMain = () => {
   const [optionSetCount, setOptionSetCount] = useState([]);
-  const handleClick = () => {
-    let setCountArr = [...optionSetCount];
-    setCountArr.push(Math.random());
-    setOptionSetCount(setCountArr);
-  };
   return (
     <>
       <MainContainer>
@@ -21,7 +17,11 @@ const OptionMain = () => {
           ))
         )}
       </MainContainer>
-      <AddOptionSetBtn onClick={handleClick}>+ 옵션 세트 추가</AddOptionSetBtn>
+      <AddOptionSetBtn
+        onClick={() => onAddDel(1, optionSetCount, setOptionSetCount)}
+      >
+        + 옵션 세트 추가
+      </AddOptionSetBtn>
     </>
   );
 };
