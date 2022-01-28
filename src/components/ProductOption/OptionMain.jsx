@@ -4,21 +4,21 @@ import styled from 'styled-components';
 import { OptionSet } from './OptionSet';
 
 const OptionMain = () => {
-  const [optionSetCount, setOptionSetCount] = useState(0);
+  const [optionSetCount, setOptionSetCount] = useState([]);
   const handleClick = () => {
-    setOptionSetCount(count => count + 1);
+    let setCountArr = [...optionSetCount];
+    setCountArr.push(Math.random());
+    setOptionSetCount(setCountArr);
   };
   return (
     <>
       <MainContainer>
-        {optionSetCount === 0 ? (
+        {optionSetCount.length === 0 ? (
           <NoOptionText>옵션세트를 추가하여 옵션을 구성해 주세요.</NoOptionText>
         ) : (
-          Array(optionSetCount)
-            .fill(1)
-            .map(i => (
-              <OptionSet key={i} setOptionSetCount={setOptionSetCount} />
-            ))
+          optionSetCount.map(el => (
+            <OptionSet key={el} setOptionSetCount={setOptionSetCount} />
+          ))
         )}
       </MainContainer>
       <AddOptionSetBtn onClick={handleClick}>+ 옵션 세트 추가</AddOptionSetBtn>

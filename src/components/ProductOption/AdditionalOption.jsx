@@ -1,6 +1,7 @@
 import { Input } from 'components';
 import React from 'react';
 import styled from 'styled-components';
+import { DeleteButton } from './DeleteButton';
 export const AdditionalOption = () => {
   return (
     <AddOptBox>
@@ -11,7 +12,7 @@ export const AdditionalOption = () => {
         <Input placeholder={'추가 옵션 정상가 (필수)'} fontS />
         <span>원</span>
       </li>
-      <button>삭제</button>
+      <DeleteButton />
     </AddOptBox>
   );
 };
