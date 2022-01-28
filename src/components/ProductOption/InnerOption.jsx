@@ -1,21 +1,25 @@
-import { Input } from 'components';
+import { Input } from './Input';
 import { STYLE } from 'constants';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { AdditionalOption } from './AdditionalOption';
 import { AiOutlinePlusSquare } from 'react-icons/ai';
 import { DeleteButton } from './DeleteButton';
+import { onAddDel } from 'utils/onAddDel';
 
-export const InnerOption = ({ innerCount, setInnerCount }) => {
+export const InnerOption = ({
+  innerCount,
+  setInnerCount,
+  optionSetCount,
+  setOptionSetCount,
+}) => {
   const [additionCount, setAdditionCount] = useState([]);
-  const addSemiOption = () => {
-    let countArr = [...additionCount];
-    countArr.push(Math.random());
-    setAdditionCount(countArr);
-  };
   return (
     <InnerOptionBox>
-      <DeleteButton />
+      <DeleteButton
+        items={innerCount.length === 1 ? optionSetCount : innerCount}
+        setItems={innerCount.length === 1 ? setOptionSetCount : setInnerCount}
+      />
       <Input placeholder={'옵션명을 입력해 주세요'} fontS />
       <SecondLineOption>
         <li>
@@ -37,11 +41,17 @@ export const InnerOption = ({ innerCount, setInnerCount }) => {
         </SelectBox>
       </SecondLineOption>
       <AddSemiOption>
-        <AiOutlinePlusSquare onClick={addSemiOption} />
+        <AiOutlinePlusSquare
+          onClick={() => onAddDel(1, additionCount, setAdditionCount)}
+        />
         <span>추가 옵션 상품 추가</span>
       </AddSemiOption>
       {additionCount.map(el => (
-        <AdditionalOption key={el} />
+        <AdditionalOption
+          key={el}
+          additionCount={additionCount}
+          setAdditionCount={setAdditionCount}
+        />
       ))}
     </InnerOptionBox>
   );

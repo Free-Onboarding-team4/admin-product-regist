@@ -1,9 +1,10 @@
 import { COLOR } from 'constants';
 import React from 'react';
 import styled from 'styled-components';
+import { onAddDel } from 'utils/onAddDel';
 
-export const DeleteButton = () => {
-  return <DelBtn>삭제</DelBtn>;
+export const DeleteButton = ({ items, setItems }) => {
+  return <DelBtn onClick={() => onAddDel(-1, items, setItems)}>삭제</DelBtn>;
 };
 const DelBtn = styled.button`
   display: block;
