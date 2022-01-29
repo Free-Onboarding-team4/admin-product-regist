@@ -8,7 +8,7 @@ export const ProductAgree = ({ title }) => {
   return (
     <SectionBlock title={title}>
       <OptionBlock name="마일리지 적립">
-        <Switch {...label} color="secondary" defaultChecked />
+        <Switch {...label} readOnly color="secondary" defaultChecked />
       </OptionBlock>
     </SectionBlock>
   );

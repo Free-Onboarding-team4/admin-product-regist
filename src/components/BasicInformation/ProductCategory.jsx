@@ -22,6 +22,7 @@ export const ProductCategory = () => {
         type="checkbox"
         checked={checkedList.indexOf(item.id) < 0 ? false : true}
         onClick={() => checkedCategory(item.id)}
+        readOnly
       />
       <Label>{item.name}</Label>
     </Check>

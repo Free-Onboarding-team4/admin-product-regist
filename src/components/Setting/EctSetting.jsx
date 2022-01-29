@@ -8,7 +8,7 @@ export const EctSetting = ({ title }) => {
   return (
     <SectionBlock title={title}>
       <OptionBlock name="감사카드 제공">
-        <Switch {...label} color="secondary" />
+        <Switch {...label} color="secondary" readOnly />
       </OptionBlock>
     </SectionBlock>
   );
