@@ -15,9 +15,8 @@ export const PageBlock = ({ title, children }) => {
 };
 
 const PageBlockContainer = styled.div`
-  max-width: 1200px;
   height: 100%;
-  margin: 40px auto;
+  padding: 40px;
 `;
 
 const PageTitleRow = styled.div`

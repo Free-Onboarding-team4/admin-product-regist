@@ -1,13 +1,14 @@
-import { COLOR } from 'constants';
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { COLOR } from 'constants';
+import { SectionBlock } from 'components/Layouts';
 import { onAddDel } from 'utils/onAddDel';
-import { OptionSet } from './OptionSet';
+import { OptionSet } from './';
 
-const OptionMain = () => {
+export const OptionMain = ({ title }) => {
   const [optionSetCount, setOptionSetCount] = useState([]);
   return (
-    <>
+    <SectionBlock title={title} bg>
       <MainContainer>
         {optionSetCount.length === 0 ? (
           <NoOptionText>옵션세트를 추가하여 옵션을 구성해 주세요.</NoOptionText>
@@ -26,11 +27,9 @@ const OptionMain = () => {
       >
         + 옵션 세트 추가
       </AddOptionSetBtn>
-    </>
+    </SectionBlock>
   );
 };
-
-export default OptionMain;
 
 const MainContainer = styled.div`
   display: flex;

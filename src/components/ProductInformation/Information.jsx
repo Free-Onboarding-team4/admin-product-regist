@@ -2,7 +2,7 @@ import { COLOR } from 'constants';
 import styled from 'styled-components';
 import { onAddDel } from 'utils/onAddDel';
 
-const Information = ({ createdNum, items, setItems }) => {
+export const Information = ({ createdNum, items, setItems }) => {
   return (
     <div>
       <Title>정보고시 {createdNum}</Title>
@@ -71,5 +71,3 @@ const InfoDelBtn = styled.button`
   border: 1px solid ${COLOR.MAIN};
   padding: 5px 7px;
 `;
-
-export default Information;

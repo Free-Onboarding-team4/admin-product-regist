@@ -1,8 +1,8 @@
-import { STYLE } from 'constants';
-import { COLOR } from 'constants';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { MdCancelPresentation } from 'react-icons/md';
+import { STYLE, COLOR } from 'constants';
+
 export const OptionImage = () => {
   const [imgUrl, setImgUrl] = useState('');
   const [isEntered, setIsEntered] = useState(false);

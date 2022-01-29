@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { IoChevronDownOutline } from 'react-icons/io5';
 import { COLOR } from 'constants';
+
 export const SideNavList = ({ title, subMenu }) => {
   const [isActive, setIsActive] = useState();
   const handleClick = () => {
     setIsActive(el => !el);
   };
   let subMenuHeight = subMenu.length * 3;
+
   return (
     <>
       <List className={isActive ? 'active' : ''} onClick={handleClick}>

@@ -5,7 +5,7 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DateTimePicker from '@mui/lab/DateTimePicker';
 import styled from 'styled-components';
 
-export default function DateTimeCalender() {
+export const DateTimeCalender = () => {
   const [startValue, setStartValue] = React.useState(null);
   const [endValue, setEndValue] = React.useState(null);
 
@@ -35,7 +35,7 @@ export default function DateTimeCalender() {
       </CalenderSection>
     </LocalizationProvider>
   );
-}
+};
 
 const Div = styled.div`
   margin: 0 10px;

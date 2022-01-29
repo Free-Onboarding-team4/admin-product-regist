@@ -1,6 +1,6 @@
-import { COLOR } from 'constants';
 import React from 'react';
 import styled from 'styled-components';
+import { COLOR } from 'constants';
 import { onAddDel } from 'utils/onAddDel';
 
 export const DeleteButton = ({ items, setItems }) => {

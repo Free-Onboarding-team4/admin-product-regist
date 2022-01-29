@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { InnerOption } from './InnerOption';
-import { OptionImage } from './OptionImage';
-import { DeleteButton } from './DeleteButton';
-import { COLOR } from 'constants';
+import { COLOR, STYLE } from 'constants';
 import { onAddDel } from 'utils/onAddDel';
-import { STYLE } from 'constants';
+import { InnerOption, OptionImage, DeleteButton } from './';
 
 export const OptionSet = ({ optionSetCount, setOptionSetCount }) => {
   const [innerCount, setInnerCount] = useState([0]);
+
   return (
     <>
       <SetContainer>

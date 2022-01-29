@@ -1,10 +1,13 @@
+import { SectionBlock } from 'components/Layouts';
 import React from 'react';
 import { ImageUpload, UploadContainer } from '.';
 
-export const RecommendImage = () => {
+export const RecommendImage = ({ title }) => {
   return (
-    <UploadContainer>
-      <ImageUpload id="recommend-img" />
-    </UploadContainer>
+    <SectionBlock title={title}>
+      <UploadContainer>
+        <ImageUpload id="recommend-img" />
+      </UploadContainer>
+    </SectionBlock>
   );
 };

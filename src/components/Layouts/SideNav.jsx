@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { COLOR } from 'constants';
-import { MENU } from 'constants';
-import { SideNavList } from './SideNavList';
-import { SUB_MENU } from 'constants';
+import { MENU, SUB_MENU, COLOR } from 'constants';
+import { SideNavList } from './';
+
 export const SideNav = () => {
   return (
     <NavContainer>
