@@ -7,6 +7,7 @@ import { ImageUpload } from 'components/ImageSection';
 import { SearchInput, TextInput } from '.';
 import { STYLE } from 'constants';
 import inventory from 'data/inventory.json';
+import { AutoComplete } from 'components/AutoComplete';
 
 export const BasicInformation = () => {
   const [value, setValue] = useState('');
@@ -33,6 +34,11 @@ export const BasicInformation = () => {
   return (
     <OptionContainer>
       <ProductCategory />
+
+      <OptionBlock name="필터 태그">
+        <AutoComplete />
+      </OptionBlock>
+
       <OptionRow>
         <OptionBlock name="상품명">
           <SearchInput

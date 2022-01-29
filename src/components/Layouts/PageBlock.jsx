@@ -18,6 +18,7 @@ const PageBlockContainer = styled.div`
   max-width: 1200px;
   height: 100%;
   margin: 40px auto;
+  margin-left: 300px;
 `;
 
 const PageTitleRow = styled.div`
