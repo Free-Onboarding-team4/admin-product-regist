@@ -1,12 +1,14 @@
 import React from 'react';
-import { BasicSwitches } from 'components/Library';
+import Switch from '@mui/material/Switch';
 import { SectionBlock, OptionBlock } from 'components/Layouts';
+
+const label = { inputProps: { 'aria-label': 'Switch demo' } };
 
 export const ProductAgree = ({ title }) => {
   return (
     <SectionBlock title={title}>
       <OptionBlock name="마일리지 적립">
-        <BasicSwitches />
+        <Switch {...label} readOnly color="secondary" defaultChecked />
       </OptionBlock>
     </SectionBlock>
   );
