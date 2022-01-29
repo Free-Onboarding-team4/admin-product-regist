@@ -1,6 +1,7 @@
 import { Input } from './Input';
+import { InputNumber } from './InputNumber';
 import { STYLE } from 'constants';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { AdditionalOption } from './AdditionalOption';
 import { AiOutlinePlusSquare } from 'react-icons/ai';
@@ -14,6 +15,20 @@ export const InnerOption = ({
   setOptionSetCount,
 }) => {
   const [additionCount, setAdditionCount] = useState([]);
+  const [ogPrice, setOgPrice] = useState(0);
+  const [price, setPrice] = useState(0);
+  const [discountRate, setDiscountRate] = useState(0);
+  useEffect(() => {
+    const calcDCRate = () => {
+      let dcPrice = ogPrice - price;
+      if (dcPrice === 0 || price === 0) {
+        setDiscountRate(0);
+        return;
+      }
+      setDiscountRate(((dcPrice / ogPrice) * 100).toFixed(0));
+    };
+    calcDCRate();
+  }, [ogPrice, price]);
   return (
     <InnerOptionBox>
       <DeleteButton
@@ -23,16 +38,24 @@ export const InnerOption = ({
       <Input placeholder={'옵션명을 입력해 주세요'} fontS />
       <SecondLineOption>
         <li>
-          <Input placeholder={'상품 정상가 (필수)'} fontS />
+          <InputNumber
+            placeholder={'상품 정상가 (필수)'}
+            fontS
+            setPrice={setOgPrice}
+          />
           <span>원</span>
         </li>
-        <li>할인율%</li>
+        <li>{discountRate === 0 ? '할인율 없음' : `${discountRate}%`}</li>
         <li>
-          <Input placeholder={'상품 판매가 (필수)'} fontS />
+          <InputNumber
+            placeholder={'상품 판매가 (필수)'}
+            fontS
+            setPrice={setPrice}
+          />
           <span>원</span>
         </li>
         <li>
-          <Input placeholder={'재고 (필수)'} fontS />
+          <InputNumber placeholder={'재고 (필수)'} fontS />
           <span>개</span>
         </li>
         <SelectBox name="tax">
@@ -66,10 +89,11 @@ const InnerOptionBox = styled.div`
   padding: 0.5em;
   border: ${STYLE.BORDER};
   border-radius: 5px;
+  transition: all 0.5s ease-out;
   & > button {
     margin-left: auto;
   }
-  & > *:not(:first-child) {
+  & > * {
     margin-bottom: 1rem;
   }
   & + div {
@@ -104,4 +128,7 @@ const SelectBox = styled.select`
   display: flex;
   width: 6rem;
   height: 3rem;
+  border: ${STYLE.BORDER};
+  border-radius: 5px;
+  padding-left: 0.5em;
 `;
