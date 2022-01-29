@@ -2,6 +2,8 @@
 
 > 소고기 판매 플랫폼의 관리자 페이지를 가정하여 상품 등록 페이지를 구현했습니다.
 
+![프로젝트 미리보기](https://user-images.githubusercontent.com/67448481/151669344-cfa9df9b-465b-4635-8782-0edc7a896f98.png)
+
 | 이름   | 담당                                        |
 | ------ | ------------------------------------------- |
 | 박훈주 | 상품 옵션 섹션, 사이드 메뉴바               |
@@ -14,6 +16,9 @@
 ## 배포 주소
 
 https://wanted-admin-product.netlify.app/
+
+### 블로그 정리 (이미지 미리보기)
+https://hoonjoo-park.github.io/react/imagePreview/
 
 <br/>
 
@@ -59,6 +64,48 @@ https://wanted-admin-product.netlify.app/
 ├─styles
 └─utils
 ```
+
+<br/>
+
+## 기능 구현 목록
+### 상품 옵션 등록 섹션 & 사이드 메뉴바 (박훈주)
+
+1. **이미지 등록 및 미리보기**
+    
+    `input` 태그를 사용했으며, `label`을 버튼화 하였고 `input`태그 자체는 가렸습니다.
+    
+    ```jsx
+    // 아래와 같이 이미지 버튼을 구성했습니다
+    <label htmlFor="">+ 이미지 첨부</label>
+    <input type=”file” accept=”image/*” onChange={getImageUrl} />
+    ```
+    
+    `onChange` 이벤트에 `getImageUrl` 함수를 걸어둔 뒤, `URL.createObjectURL()` 을 활용했습니다.
+    
+    ```jsx
+    const getImageUrl = (e) => {
+    	let file = e.target.files[0];
+    	let url = URL.createObjectURL(file);
+    	// ImgUrl이란 state를 두고 이를 img의 src에 연동시켜 줬습니다
+    	setImgUrl(url);
+    };
+    ```
+    
+2. **옵션 추가 및 제거**
+    
+    팀장 @이현호 님이 멋지게 유틸함수로써 구분해주신 `onAddDel()` 를 활용하여 옵션 추가 기능을 구현했습니다.
+    
+    컴포넌트 내에서 `map()` 을 돌려 옵션들을 배치 및 렌더링해야 했기에 더미배열을 만들어 활용했습니다. 기본적으로 `Add`가 실행되어야 할 경우에는 `push`를, `Delete`가 실행되어야 할 경우에는 `pop`을 사용했습니다.
+    
+3. **할인율 계산**
+    
+    우선, 숫자의 경우 가독성을 위해 회계 표기식 쉼표가 필요하다고 판단했습니다. 이에 따라 인풋값이 1000 이상일 경우 콤마를 붙여줬고, `split`과 `join`을 통해 `Number`로 재변환 하여 유동적으로 값을 계산하는데 활용했습니다. 사용한 계산공식은 아래와 같습니다.
+    
+    `할인율 = (정가 - 판매가) / 정가 * 100`
+    
+4. **사이드 Navbar 구현**
+    
+    조금 더 섬세하고 완벽한 과제 구현을 위해, `navbar` 또한 구현해 봤습니다. 메뉴 리스트와 서브메뉴 리스트는 코드 가독성과 유지보수성을 위해 `constants`에 담아 상수화 하여 활용했습니다. 또한, 메뉴 클릭 시 아코디언 형식의 드롭다운이 자연스럽게 보여지도록 해당 기능도 구현해봤습니다.
 
 <br/>
 
