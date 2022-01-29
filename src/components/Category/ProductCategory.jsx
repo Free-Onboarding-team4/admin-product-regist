@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { OptionBlock } from 'components/Layouts';
 import category from 'data/category';
 import { COLOR } from 'constants';
-import { Cross } from '@styled-icons/entypo/Cross';
+import { RiCloseLine } from 'react-icons/ri';
 import styled from 'styled-components';
 
 const ProductCategory = () => {
@@ -41,10 +42,12 @@ const ProductCategory = () => {
     );
 
   return (
-    <CategorySection>
-      <CategoryList>{ChoiceCategory}</CategoryList>
-      <SelectCategory>{upLoadCategory}</SelectCategory>
-    </CategorySection>
+    <OptionBlock name="카테고리*">
+      <CategorySection>
+        <CategoryList>{ChoiceCategory}</CategoryList>
+        <SelectCategory>{upLoadCategory}</SelectCategory>
+      </CategorySection>
+    </OptionBlock>
   );
 };
 
@@ -75,7 +78,6 @@ const Check = styled.div`
 
 const Label = styled.label`
   margin-left: 15px;
-
   font-size: 20px;
 `;
 
@@ -83,8 +85,9 @@ const ShowCategory = styled.div`
   color: gray;
 `;
 
-const CrossIcon = styled(Cross)`
+const CrossIcon = styled(RiCloseLine)`
   width: 20px;
+  cursor: pointer;
 `;
 
 const SelectBox = styled.div`
