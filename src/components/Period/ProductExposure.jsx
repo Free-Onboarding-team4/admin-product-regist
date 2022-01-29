@@ -1,5 +1,5 @@
 import React from 'react';
-import DateTimeCalender from '../Library/DateTimeCalender';
+import { DateTimeCalender } from '../Library';
 import { COLOR } from 'constants';
 import styled from 'styled-components';
 

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { STYLE } from 'constants';
 import { PageBlock } from 'components/Layouts';
 import { ProductDelivery, ProductAgree, EctSetting } from 'components/Setting';
-import { SideNav } from 'components/Layouts/SideNav';
+import { SideNav } from 'components/Layouts';
 import { BasicInformation } from 'components/BasicInformation';
 import { IntroductionImage, RecommendImage } from 'components/ImageSection';
 import { OptionMain } from 'components/ProductOption';

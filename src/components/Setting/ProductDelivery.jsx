@@ -1,22 +1,24 @@
 import React from 'react';
 import { SectionBlock, OptionBlock } from 'components/Layouts';
-import DateTimeCalender from 'components/Library/DateTimeCalender';
-import DeliverySetting from 'components/Setting/DeliverySetting';
-import DatePickerBox from 'components/Library/DatePickerBox';
+import {
+  DateTimeCalender,
+  DatePickerBox,
+  BasicSwitches,
+} from 'components/Library';
 import styled from 'styled-components';
 
-const ProductDelivery = ({ title }) => {
+export const ProductDelivery = ({ title }) => {
   return (
     <SectionBlock title={title}>
       <OptionBlock name="사용자 배송일 출발일 지정">
-        <DeliverySetting />
+        <BasicSwitches />
       </OptionBlock>
       <OptionBlock name="방문 수령">
-        <DeliverySetting />
+        <BasicSwitches />
       </OptionBlock>
       <OptionBlock name="선 주문 예약 배송">
         <SettingBox>
-          <DeliverySetting />
+          <BasicSwitches />
           <DateSection>
             <OrderTime>주문 시간</OrderTime>
             <DateTimeCalender />
@@ -70,5 +72,3 @@ const SettingBox = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
-export default ProductDelivery;

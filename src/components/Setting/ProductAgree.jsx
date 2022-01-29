@@ -1,15 +1,13 @@
 import React from 'react';
-import DeliverySetting from './DeliverySetting';
+import { BasicSwitches } from 'components/Library';
 import { SectionBlock, OptionBlock } from 'components/Layouts';
 
-const ProductAgree = ({ title }) => {
+export const ProductAgree = ({ title }) => {
   return (
     <SectionBlock title={title}>
       <OptionBlock name="마일리지 적립">
-        <DeliverySetting />
+        <BasicSwitches />
       </OptionBlock>
     </SectionBlock>
   );
 };
-
-export default ProductAgree;

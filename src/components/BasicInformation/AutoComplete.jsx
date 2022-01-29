@@ -1,8 +1,7 @@
-import { STYLE } from 'constants';
-import { COLOR } from 'constants';
-import filter from 'data/filter';
 import { useState } from 'react';
 import styled from 'styled-components';
+import { STYLE, COLOR } from 'constants';
+import filter from 'data/filter';
 
 export const AutoComplete = () => {
   const data = filter.filters;
