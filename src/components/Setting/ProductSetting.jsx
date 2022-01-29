@@ -1,11 +1,11 @@
 import React from 'react';
 import { SectionBlock, OptionBlock } from 'components/Layouts';
-import DateTimeCalender from '../components/Library/DateTimeCalender';
+import DateTimeCalender from 'components/Library/DateTimeCalender';
 import DeliverySetting from 'components/Setting/DeliverySetting';
+import DatePickerBox from 'components/Library/DatePickerBox';
 import styled from 'styled-components';
-import DatePickerBox from '../components/Library/DatePickerBox';
 
-const Ch = () => {
+const ProductSetting = () => {
   return (
     <>
       <SectionBlock title="상품 배송 설정">
@@ -49,7 +49,7 @@ const Ch = () => {
   );
 };
 
-export default Ch;
+export default ProductSetting;
 
 const DateDivBox = styled.div`
   width: 140px;
