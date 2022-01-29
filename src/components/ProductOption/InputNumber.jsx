@@ -20,6 +20,7 @@ export const InputNumber = ({ placeholder, fontS, setPrice }) => {
     setInputValue(cleanString);
     setPrice && setPrice(Number(cleanString));
   };
+
   return (
     <InputBlock
       placeholder={placeholder}

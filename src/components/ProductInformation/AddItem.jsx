@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { onAddDel } from 'utils/onAddDel';
 
-const AddItem = () => {
+export const AddItem = () => {
   const [items, setItems] = useState([0]);
 
   return (
@@ -56,5 +56,3 @@ const ItemAdd = styled.button`
   font-weight: 700;
   border: 1px solid ${COLOR.BG};
 `;
-
-export default AddItem;

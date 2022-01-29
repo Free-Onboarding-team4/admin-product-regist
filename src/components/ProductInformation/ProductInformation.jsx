@@ -3,10 +3,9 @@ import { COLOR } from 'constants';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { onAddDel } from 'utils/onAddDel';
-import AddItem from './AddItem';
-import Information from './Information';
+import { AddItem, Information } from './';
 
-const ProductInformation = ({ title }) => {
+export const ProductInformation = ({ title }) => {
   const [items, setItems] = useState([0]);
 
   return (
@@ -49,5 +48,3 @@ const Add = styled.div`
   font-size: 18px;
   font-weight: 700;
 `;
-
-export default ProductInformation;

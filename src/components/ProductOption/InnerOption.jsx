@@ -1,12 +1,9 @@
-import { Input } from './Input';
-import { InputNumber } from './InputNumber';
-import { STYLE } from 'constants';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { AdditionalOption } from './AdditionalOption';
 import { AiOutlinePlusSquare } from 'react-icons/ai';
-import { DeleteButton } from './DeleteButton';
+import { STYLE } from 'constants';
 import { onAddDel } from 'utils/onAddDel';
+import { Input, InputNumber, AdditionalOption, DeleteButton } from './';
 
 export const InnerOption = ({
   innerCount,
@@ -29,6 +26,7 @@ export const InnerOption = ({
     };
     calcDCRate();
   }, [ogPrice, price]);
+
   return (
     <InnerOptionBox>
       <DeleteButton

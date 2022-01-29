@@ -1,11 +1,11 @@
-import { SectionBlock } from 'components/Layouts';
-import { COLOR } from 'constants';
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { COLOR } from 'constants';
+import { SectionBlock } from 'components/Layouts';
 import { onAddDel } from 'utils/onAddDel';
-import { OptionSet } from './OptionSet';
+import { OptionSet } from './';
 
-const OptionMain = ({ title }) => {
+export const OptionMain = ({ title }) => {
   const [optionSetCount, setOptionSetCount] = useState([]);
   return (
     <SectionBlock title={title} bg>
@@ -30,8 +30,6 @@ const OptionMain = ({ title }) => {
     </SectionBlock>
   );
 };
-
-export default OptionMain;
 
 const MainContainer = styled.div`
   display: flex;
