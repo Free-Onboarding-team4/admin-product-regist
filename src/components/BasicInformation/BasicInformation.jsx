@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
+import ProductCategory from 'components/Category/ProductCategory';
 import { OptionBlock } from 'components/Layouts';
 import { ImageUpload } from 'components/ImageSection';
 import { SearchInput, TextInput } from '.';
@@ -31,6 +32,7 @@ export const BasicInformation = () => {
 
   return (
     <OptionContainer>
+      <ProductCategory />
       <OptionRow>
         <OptionBlock name="상품명">
           <SearchInput
