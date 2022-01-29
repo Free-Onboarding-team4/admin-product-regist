@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
-import ProductCategory from 'components/Category/ProductCategory';
 import { OptionBlock, SectionBlock } from 'components/Layouts';
 import { ImageUpload } from 'components/ImageSection';
-import { SearchInput, TextInput } from '.';
+import { SearchInput, TextInput, ProductCategory, AutoComplete } from '.';
 import { STYLE } from 'constants';
 import inventory from 'data/inventory.json';
-import { AutoComplete } from 'components/AutoComplete';
 
 export const BasicInformation = ({ title }) => {
   const [value, setValue] = useState('');

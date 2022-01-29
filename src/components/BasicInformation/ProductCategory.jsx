@@ -5,7 +5,7 @@ import { COLOR } from 'constants';
 import { RiCloseLine } from 'react-icons/ri';
 import styled from 'styled-components';
 
-const ProductCategory = () => {
+export const ProductCategory = () => {
   const [checkedList, setCheckedList] = useState([]);
 
   const checkedCategory = id => {
@@ -50,8 +50,6 @@ const ProductCategory = () => {
     </OptionBlock>
   );
 };
-
-export default ProductCategory;
 
 const Input = styled.input.attrs({ type: 'checkBox' })`
   -moz-appearance: none;
