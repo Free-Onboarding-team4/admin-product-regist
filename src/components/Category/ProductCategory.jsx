@@ -6,7 +6,6 @@ import styled from 'styled-components';
 
 const ProductCategory = () => {
   const [checkedList, setCheckedList] = useState([]);
-  const [showList, setShowList] = useState([]);
 
   const checkedCategory = id => {
     if (checkedList.indexOf(id) < 0) {
@@ -16,44 +15,35 @@ const ProductCategory = () => {
     }
   };
 
-  const showLists = id => {
-    if (showList.indexOf(id) === checkedList.indexOf(id)) {
-      category.map(item => (
-        <SelectBox key={item.id} value={item.id}>
-          {item.name} <CrossIcon onClick={() => deleteList(item.id)} />
-        </SelectBox>
-      ));
-    } else {
-      <ShowCategory>카테고리를 지정해 주세요</ShowCategory>;
-    }
-  };
-
-  const deleteList = id => {
-    setShowList(showList.filter(showList => showList !== id));
-  };
-
   const ChoiceCategory = category.map(item => (
     <Check key={item.id}>
       <Input
         type="checkbox"
-        value={item.id}
+        checked={checkedList.indexOf(item.id) < 0 ? false : true}
         onClick={() => checkedCategory(item.id)}
-        onChange={() => showLists(item.id)}
       />
       <Label>{item.name}</Label>
     </Check>
   ));
 
-  // const upRoadCategory =
-
-  // <ShowCategory>카테고리를 지정해 주세요</ShowCategory>;
+  const upLoadCategory =
+    checkedList.length === 0 ? (
+      <ShowCategory>카테고리를 지정해 주세요</ShowCategory>
+    ) : (
+      category.map(
+        item =>
+          checkedList.indexOf(item.id) >= 0 && (
+            <SelectBox key={item.id} value={item.id}>
+              {item.name} <CrossIcon onClick={() => checkedCategory(item.id)} />
+            </SelectBox>
+          )
+      )
+    );
 
   return (
     <CategorySection>
-      {/* {checkedList}
-      {showList} */}
       <CategoryList>{ChoiceCategory}</CategoryList>
-      <SelectCategory></SelectCategory>
+      <SelectCategory>{upLoadCategory}</SelectCategory>
     </CategorySection>
   );
 };
