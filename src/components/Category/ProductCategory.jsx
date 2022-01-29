@@ -38,21 +38,22 @@ const ProductCategory = () => {
         type="checkbox"
         value={item.id}
         onClick={() => checkedCategory(item.id)}
+        onChange={() => showLists(item.id)}
       />
       <Label>{item.name}</Label>
     </Check>
   ));
 
-  const upRoadCategory = showLists() && (
-    <ShowCategory>카테고리를 지정해 주세요</ShowCategory>
-  );
+  // const upRoadCategory =
+
+  // <ShowCategory>카테고리를 지정해 주세요</ShowCategory>;
 
   return (
     <CategorySection>
       {/* {checkedList}
       {showList} */}
       <CategoryList>{ChoiceCategory}</CategoryList>
-      <SelectCategory>{upRoadCategory}</SelectCategory>
+      <SelectCategory></SelectCategory>
     </CategorySection>
   );
 };
