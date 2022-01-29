@@ -4,6 +4,7 @@ import DateTimeCalender from '../components/Library/DateTimeCalender';
 import ProductExposure from 'components/Period/ProductExposure';
 import ProductSale from 'components/Period/ProductSale';
 import DeliverySetting from 'components/Setting/DeliverySetting';
+import ProductCategory from 'components/Category/ProductCategory';
 
 const ProductPeriod = ({ name }) => {
   return (
@@ -26,6 +27,8 @@ const ProductPeriod = ({ name }) => {
         <OptionBlock name="선 주문 예약 배송">
           <DeliverySetting />
           <DateTimeCalender />
+        <OptionBlock name="카테고리*">
+          <ProductCategory />
         </OptionBlock>
       </SectionBlock>
     </>

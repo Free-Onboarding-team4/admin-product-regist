@@ -5,25 +5,35 @@ import styled from 'styled-components';
 
 const ProductSale = () => {
   return (
-    <>
-      <Input type="radio" name="sale" value="0" defaultChecked />
-      <Label>제한없음</Label>
+    <InputSection>
+      <InputBox>
+        <Input type="radio" name="sale" value="0" defaultChecked />
+        <Label>제한없음</Label>
+      </InputBox>
       <br />
-      <Input type="radio" name="sale" value="1" />
-      <Label>미판매</Label>
+      <InputBox>
+        <Input type="radio" name="sale" value="1" />
+        <Label>미판매</Label>
+      </InputBox>
       <br />
-      <Input type="radio" name="sale" value="2" />
-      <Label>판매 기간 설정</Label>
+      <InputBox>
+        <Input type="radio" name="sale" value="2" />
+        <Label>판매 기간 설정</Label>
+      </InputBox>
       <DateTimeCalender />
-    </>
+    </InputSection>
   );
 };
 
 export default ProductSale;
 
+const InputBox = styled.div`
+  display: inline;
+`;
+
 const Label = styled.label`
   vertical-align: super;
-  padding-left: 15px;
+  padding-left: 10px;
 `;
 
 const Input = styled.input.attrs({ type: 'radio' })`
@@ -32,16 +42,19 @@ const Input = styled.input.attrs({ type: 'radio' })`
   border: 1px solid ${COLOR.BG};
   width: 25px;
   height: 25px;
-
   :checked {
     -webkit-appearance: none;
     -moz-appearance: none;
     margin-left: 16px;
     width: 25px;
     height: 25px;
-
     border: 3px solid ${COLOR.BG};
     border-radius: 100%;
     background-color: ${COLOR.MAIN};
   }
+`;
+
+const InputSection = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
