@@ -4,19 +4,11 @@ import { InnerOption } from './InnerOption';
 import { OptionImage } from './OptionImage';
 import { DeleteButton } from './DeleteButton';
 import { COLOR } from 'constants';
+import { onAddDel } from 'utils/onAddDel';
+import { STYLE } from 'constants';
 
-export const OptionSet = ({ setOptionSetCount }) => {
+export const OptionSet = ({ optionSetCount, setOptionSetCount }) => {
   const [innerCount, setInnerCount] = useState([0]);
-  const handleDelete = () => {
-    setOptionSetCount(count => count - 1);
-    console.log('clicked!');
-  };
-  const addInnerOption = () => {
-    let countArr = [...innerCount];
-    countArr.push(Math.random());
-    setInnerCount(countArr);
-    return;
-  };
   return (
     <>
       <SetContainer>
@@ -26,10 +18,14 @@ export const OptionSet = ({ setOptionSetCount }) => {
             key={el}
             innerCount={innerCount}
             setInnerCount={setInnerCount}
+            optionSetCount={optionSetCount}
+            setOptionSetCount={setOptionSetCount}
           />
         ))}
-        <DeleteButton onClick={handleDelete} />
-        <AddButton onClick={addInnerOption}>+ 옵션 추가</AddButton>
+        <DeleteButton items={optionSetCount} setItems={setOptionSetCount} />
+        <AddButton onClick={() => onAddDel(1, innerCount, setInnerCount)}>
+          + 옵션 추가
+        </AddButton>
       </SetContainer>
     </>
   );
@@ -63,6 +59,6 @@ const AddButton = styled.button`
   height: 3rem;
   padding: 1em;
   border-radius: 5px;
-  border: 1px solid ${COLOR.MAIN};
+  border: ${STYLE.BORDER_BTN};
   color: ${COLOR.MAIN};
 `;
