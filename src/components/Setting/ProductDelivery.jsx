@@ -1,24 +1,23 @@
 import React from 'react';
 import { SectionBlock, OptionBlock } from 'components/Layouts';
-import {
-  DateTimeCalender,
-  DatePickerBox,
-  BasicSwitches,
-} from 'components/Library';
+import { DateTimeCalender, DatePickerBox } from 'components/Library';
+import Switch from '@mui/material/Switch';
 import styled from 'styled-components';
+
+const label = { inputProps: { 'aria-label': 'Switch demo' } };
 
 export const ProductDelivery = ({ title }) => {
   return (
     <SectionBlock title={title}>
       <OptionBlock name="사용자 배송일 출발일 지정">
-        <BasicSwitches />
+        <Switch {...label} color="secondary" />
       </OptionBlock>
       <OptionBlock name="방문 수령">
-        <BasicSwitches />
+        <Switch {...label} color="secondary" />
       </OptionBlock>
       <OptionBlock name="선 주문 예약 배송">
         <SettingBox>
-          <BasicSwitches />
+          <Switch {...label} color="secondary" />
           <DateSection>
             <OrderTime>주문 시간</OrderTime>
             <DateTimeCalender />
