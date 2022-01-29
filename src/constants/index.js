@@ -10,6 +10,7 @@ export const COLOR = {
 export const STYLE = {
   BORDER: '1px solid #DDD',
   BORDER_BTN: `2px solid ${COLOR.MAIN}`,
+  NAV_WIDTH: '14vw',
 };
 
 export const MENU = [

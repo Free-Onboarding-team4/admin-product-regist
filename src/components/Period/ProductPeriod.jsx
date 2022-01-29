@@ -1,11 +1,10 @@
 import React from 'react';
 import { SectionBlock, OptionBlock } from 'components/Layouts';
-import ProductExposure from 'components/Period/ProductExposure';
-import ProductSale from 'components/Period/ProductSale';
+import { ProductExposure, ProductSale } from './';
 
-const ProductPeriod = () => {
+export const ProductPeriod = ({ title }) => {
   return (
-    <SectionBlock title="노출 및 판매기간 설정">
+    <SectionBlock title={title}>
       <OptionBlock name="상품 노출 기한">
         <ProductExposure />
       </OptionBlock>
@@ -15,5 +14,3 @@ const ProductPeriod = () => {
     </SectionBlock>
   );
 };
-
-export default ProductPeriod;

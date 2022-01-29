@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 import ProductCategory from 'components/Category/ProductCategory';
-import { OptionBlock } from 'components/Layouts';
+import { OptionBlock, SectionBlock } from 'components/Layouts';
 import { ImageUpload } from 'components/ImageSection';
 import { SearchInput, TextInput } from '.';
 import { STYLE } from 'constants';
 import inventory from 'data/inventory.json';
 import { AutoComplete } from 'components/AutoComplete';
 
-export const BasicInformation = () => {
+export const BasicInformation = ({ title }) => {
   const [value, setValue] = useState('');
   const [code, setCode] = useState('');
   const [stock, setStock] = useState(0);
@@ -32,34 +32,36 @@ export const BasicInformation = () => {
   };
 
   return (
-    <OptionContainer>
-      <ProductCategory />
+    <SectionBlock title={title}>
+      <OptionContainer>
+        <ProductCategory />
 
-      <OptionBlock name="필터 태그">
-        <AutoComplete />
-      </OptionBlock>
-
-      <OptionRow>
-        <OptionBlock name="상품명">
-          <SearchInput
-            placeholder="상품명을 입력해주세요"
-            handleSearch={handleSearch}
-            handleChange={handleChange}
-          />
+        <OptionBlock name="필터 태그">
+          <AutoComplete />
         </OptionBlock>
-        <OptionBlock name="상품코드">{code}</OptionBlock>
-      </OptionRow>
-      <OptionBlock name="상품 구성 소개 정보">
-        <TextInput placeholder="상품 구성 소개 정보를 입력해 주세요." />
-      </OptionBlock>
-      <OptionBlock name="상품 썸네일">
-        <ImageUpload id="thumbnail" />
-      </OptionBlock>
-      <OptionBlock name="상품 대표 이미지">
-        <ImageUpload id="main-img" />
-      </OptionBlock>
-      <OptionBlock name="상품 총 재고">{stock}개</OptionBlock>
-    </OptionContainer>
+
+        <OptionRow>
+          <OptionBlock name="상품명">
+            <SearchInput
+              placeholder="상품명을 입력해주세요"
+              handleSearch={handleSearch}
+              handleChange={handleChange}
+            />
+          </OptionBlock>
+          <OptionBlock name="상품코드">{code}</OptionBlock>
+        </OptionRow>
+        <OptionBlock name="상품 구성 소개 정보">
+          <TextInput placeholder="상품 구성 소개 정보를 입력해 주세요." />
+        </OptionBlock>
+        <OptionBlock name="상품 썸네일">
+          <ImageUpload id="thumbnail" />
+        </OptionBlock>
+        <OptionBlock name="상품 대표 이미지">
+          <ImageUpload id="main-img" />
+        </OptionBlock>
+        <OptionBlock name="상품 총 재고">{stock}개</OptionBlock>
+      </OptionContainer>
+    </SectionBlock>
   );
 };
 

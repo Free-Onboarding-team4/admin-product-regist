@@ -1,13 +1,14 @@
+import { SectionBlock } from 'components/Layouts';
 import { COLOR } from 'constants';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { onAddDel } from 'utils/onAddDel';
 import { OptionSet } from './OptionSet';
 
-const OptionMain = () => {
+const OptionMain = ({ title }) => {
   const [optionSetCount, setOptionSetCount] = useState([]);
   return (
-    <>
+    <SectionBlock title={title} bg>
       <MainContainer>
         {optionSetCount.length === 0 ? (
           <NoOptionText>옵션세트를 추가하여 옵션을 구성해 주세요.</NoOptionText>
@@ -26,7 +27,7 @@ const OptionMain = () => {
       >
         + 옵션 세트 추가
       </AddOptionSetBtn>
-    </>
+    </SectionBlock>
   );
 };
 

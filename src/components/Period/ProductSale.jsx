@@ -3,7 +3,7 @@ import DateTimeCalender from '../Library/DateTimeCalender';
 import { COLOR } from 'constants';
 import styled from 'styled-components';
 
-const ProductSale = () => {
+export const ProductSale = () => {
   return (
     <InputSection>
       <InputBox>
@@ -24,8 +24,6 @@ const ProductSale = () => {
     </InputSection>
   );
 };
-
-export default ProductSale;
 
 const InputBox = styled.div`
   display: inline;
