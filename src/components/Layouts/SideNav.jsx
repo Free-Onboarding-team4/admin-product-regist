@@ -22,7 +22,6 @@ const NavContainer = styled.nav`
   height: 100vh;
   left: 0;
   top: 0;
-  border-right: 2px solid ${COLOR.BG_LIGHT};
 `;
 
 const LogoBox = styled.h1`

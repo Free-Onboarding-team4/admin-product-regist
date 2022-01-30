@@ -13,7 +13,7 @@ export const OptionMain = ({ title, addRequired }) => {
   }, [optionSetCount, addRequired]);
 
   return (
-    <SectionBlock title={title} bg>
+    <SectionBlock title={title} bg required>
       <MainContainer>
         {optionSetCount.length === 0 ? (
           <NoOptionText>옵션세트를 추가하여 옵션을 구성해 주세요.</NoOptionText>

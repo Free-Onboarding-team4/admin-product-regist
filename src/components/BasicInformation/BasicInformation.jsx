@@ -52,7 +52,7 @@ export const BasicInformation = ({ title, addRequired }) => {
   return (
     <SectionBlock title={title}>
       <OptionContainer>
-        <OptionBlock name="카테고리">
+        <OptionBlock name="카테고리" required>
           <ProductCategory addRequired={addRequired} />
         </OptionBlock>
 
@@ -61,7 +61,7 @@ export const BasicInformation = ({ title, addRequired }) => {
         </OptionBlock>
 
         <OptionRow>
-          <OptionBlock name="상품명">
+          <OptionBlock name="상품명" required>
             <SearchInput
               name="productName"
               placeholder="상품명을 입력해주세요"
@@ -72,7 +72,7 @@ export const BasicInformation = ({ title, addRequired }) => {
           <OptionBlock name="상품코드">{code}</OptionBlock>
         </OptionRow>
 
-        <OptionBlock name="상품 구성 소개 정보">
+        <OptionBlock name="상품 구성 소개 정보" required>
           <TextInput
             name="description"
             placeholder="상품 구성 소개 정보를 입력해 주세요."
@@ -88,7 +88,9 @@ export const BasicInformation = ({ title, addRequired }) => {
           <ImageUpload id="main-img" />
         </OptionBlock>
 
-        <OptionBlock name="상품 총 재고">{value.stock}개</OptionBlock>
+        <OptionBlock name="상품 총 재고" required>
+          {value.stock}개
+        </OptionBlock>
       </OptionContainer>
     </SectionBlock>
   );
