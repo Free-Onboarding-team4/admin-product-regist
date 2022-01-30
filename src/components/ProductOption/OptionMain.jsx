@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { COLOR } from 'constants';
 import { SectionBlock } from 'components/Layouts';
 import { onAddDel } from 'utils/onAddDel';
 import { OptionSet } from './';
 
-export const OptionMain = ({ title }) => {
+export const OptionMain = ({ title, addRequired }) => {
   const [optionSetCount, setOptionSetCount] = useState([]);
+
+  useEffect(() => {
+    addRequired('option', optionSetCount);
+  }, [optionSetCount, addRequired]);
+
   return (
     <SectionBlock title={title} bg>
       <MainContainer>

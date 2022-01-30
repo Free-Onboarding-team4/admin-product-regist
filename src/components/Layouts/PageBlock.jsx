@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { COLOR, STYLE } from 'constants';
 
-export const PageBlock = ({ title, children }) => {
+export const PageBlock = ({ title, children, handleClick }) => {
   return (
     <PageBlockContainer>
       <PageTitleRow>
         <PageTitle>{title}</PageTitle>
-        <SaveButton>저장하기</SaveButton>
+        <SaveButton onClick={handleClick}>저장하기</SaveButton>
       </PageTitleRow>
       <PageContent>{children}</PageContent>
     </PageBlockContainer>
