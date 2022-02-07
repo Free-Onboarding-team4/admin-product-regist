@@ -16,7 +16,7 @@ export const PageBlock = ({ title, children, handleClick }) => {
 
 const PageBlockContainer = styled.div`
   height: 100%;
-  padding: 40px 0;
+  padding: 40px 9vw;
 `;
 
 const PageTitleRow = styled.div`
