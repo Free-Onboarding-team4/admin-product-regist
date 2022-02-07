@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-import { OptionBlock } from 'components/Layouts';
+import React, { useState, useEffect } from 'react';
 import category from 'data/category';
 import { COLOR } from 'constants';
 import { RiCloseLine } from 'react-icons/ri';
 import styled from 'styled-components';
 
-export const ProductCategory = () => {
+export const ProductCategory = ({ addRequired }) => {
   const [checkedList, setCheckedList] = useState([]);
 
   const checkedCategory = id => {
@@ -16,11 +15,15 @@ export const ProductCategory = () => {
     }
   };
 
+  useEffect(() => {
+    addRequired('category', checkedList);
+  }, [checkedList, addRequired]);
+
   const ChoiceCategory = category.map(item => (
     <Check key={item.id}>
       <Input
         type="checkbox"
-        checked={checkedList.indexOf(item.id) < 0 ? false : true}
+        defaultChecked={checkedList.indexOf(item.id) < 0 ? false : true}
         onClick={() => checkedCategory(item.id)}
         readOnly
       />
@@ -43,12 +46,10 @@ export const ProductCategory = () => {
     );
 
   return (
-    <OptionBlock name="카테고리*">
-      <CategorySection>
-        <CategoryList>{ChoiceCategory}</CategoryList>
-        <SelectCategory>{upLoadCategory}</SelectCategory>
-      </CategorySection>
-    </OptionBlock>
+    <CategorySection>
+      <CategoryList>{ChoiceCategory}</CategoryList>
+      <SelectCategory>{upLoadCategory}</SelectCategory>
+    </CategorySection>
   );
 };
 

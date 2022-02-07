@@ -2,8 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { STYLE } from 'constants';
 
-export const TextInput = ({ placeholder }) => {
-  return <InputBlock placeholder={placeholder} />;
+export const TextInput = ({ placeholder, handleChange, name }) => {
+  return (
+    <InputBlock name={name} placeholder={placeholder} onChange={handleChange} />
+  );
 };
 
 export const SearchInput = ({
@@ -11,9 +13,11 @@ export const SearchInput = ({
   handleSearch,
   handleChange,
   value,
+  name,
 }) => {
   return (
     <InputBlock
+      name={name}
       value={value}
       placeholder={placeholder}
       onKeyDown={handleSearch}

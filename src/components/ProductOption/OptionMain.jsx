@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { COLOR } from 'constants';
 import { SectionBlock } from 'components/Layouts';
 import { onAddDel } from 'utils/onAddDel';
 import { OptionSet } from './';
 
-export const OptionMain = ({ title }) => {
+export const OptionMain = ({ title, addRequired }) => {
   const [optionSetCount, setOptionSetCount] = useState([]);
+
+  useEffect(() => {
+    addRequired('option', optionSetCount);
+  }, [optionSetCount, addRequired]);
+
   return (
-    <SectionBlock title={title} bg>
+    <SectionBlock title={title} bg required>
       <MainContainer>
         {optionSetCount.length === 0 ? (
           <NoOptionText>옵션세트를 추가하여 옵션을 구성해 주세요.</NoOptionText>

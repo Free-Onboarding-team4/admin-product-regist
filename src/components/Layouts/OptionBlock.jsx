@@ -1,11 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import { COLOR, STYLE } from 'constants';
+import { REQ_ICON } from 'styles/required';
 
-export const OptionBlock = ({ name, children }) => {
+export const OptionBlock = ({ name, children, required }) => {
   return (
     <OptionBlockContainer>
-      <OptionName>{name}</OptionName>
+      <OptionName required={required}>
+        <span>{name}</span>
+      </OptionName>
       <OptionContent>{children}</OptionContent>
     </OptionBlockContainer>
   );
@@ -29,6 +32,8 @@ const OptionName = styled.div`
   font-weight: 500;
   letter-spacing: -0.5px;
   background: ${COLOR.BG_LIGHT};
+
+  ${REQ_ICON}
 `;
 
 const OptionContent = styled.div`
