@@ -1,11 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import { STYLE, COLOR } from 'constants';
+import { REQ_ICON } from 'styles/required';
 
-export const SectionBlock = ({ bg, title, children }) => {
+export const SectionBlock = ({ bg, title, children, required }) => {
   return (
     <SectionBlockContainer>
-      <SectionTitle>{title}</SectionTitle>
+      <SectionTitle required={required}>
+        <span>{title}</span>
+      </SectionTitle>
       <SectionContent bg={bg}>{children}</SectionContent>
     </SectionBlockContainer>
   );
@@ -25,6 +28,8 @@ const SectionTitle = styled.h2`
   font-weight: 700;
   border-bottom: ${STYLE.BORDER};
   letter-spacing: -0.5px;
+
+  ${REQ_ICON}
 `;
 
 const SectionContent = styled.div`
