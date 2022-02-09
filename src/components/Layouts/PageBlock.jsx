@@ -1,13 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { COLOR, STYLE } from 'constants';
+import { STYLE } from 'constants';
 
-export const PageBlock = ({ title, children, handleClick }) => {
+export const PageBlock = ({ title, children }) => {
   return (
     <PageBlockContainer>
       <PageTitleRow>
         <PageTitle>{title}</PageTitle>
-        <SaveButton onClick={handleClick}>저장하기</SaveButton>
       </PageTitleRow>
       <PageContent>{children}</PageContent>
     </PageBlockContainer>
@@ -23,6 +22,7 @@ const PageTitleRow = styled.div`
   position: fixed;
   margin-left: 14vw;
   width: calc(100% - 14vw);
+  height: 42px;
   top: 0;
   left: 0;
   z-index: 10;
@@ -30,7 +30,7 @@ const PageTitleRow = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 20px;
+  padding: 5px ${STYLE.PADDING};
   border: ${STYLE.BORDER};
 `;
 
@@ -41,16 +41,7 @@ const PageTitle = styled.h3`
 `;
 
 const PageContent = styled.div`
-  padding: 20px;
+  padding: ${STYLE.PADDING};
   border: ${STYLE.BORDER};
   border-top: none;
-`;
-
-const SaveButton = styled.button`
-  width: 90px;
-  height: 30px;
-  font-size: 14px;
-  color: #eee;
-  border-radius: 4px;
-  background-color: ${COLOR.MAIN};
 `;

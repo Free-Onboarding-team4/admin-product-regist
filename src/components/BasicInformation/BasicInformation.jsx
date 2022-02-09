@@ -25,16 +25,17 @@ export const BasicInformation = ({ title, addRequired }) => {
 
   const handleSearch = e => {
     if (e.keyCode === 13) {
+      e.preventDefault();
       for (let item of inventory) {
         if (value['productName'] === item.name) {
-          setCode(item.id.slice(0, 13));
+          setCode(item.id.slice(0, 11));
           setValue(prev => ({
             ...prev,
             stock: item.stock,
           }));
           break;
         } else {
-          setCode(uuidv4().slice(0, 13));
+          setCode(uuidv4().slice(0, 11));
           setValue(prev => ({
             ...prev,
             stock: 10,
@@ -64,7 +65,7 @@ export const BasicInformation = ({ title, addRequired }) => {
           <OptionBlock name="상품명" required>
             <SearchInput
               name="productName"
-              placeholder="상품명을 입력해주세요"
+              placeholder="상품명 입력 후 Enter키를 누르세요"
               handleSearch={handleSearch}
               handleChange={handleChange}
             />
