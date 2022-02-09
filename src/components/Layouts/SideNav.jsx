@@ -7,11 +7,13 @@ export const SideNav = () => {
   return (
     <NavContainer>
       <LogoBox>BeefPlz</LogoBox>
-      <MainMenu>
-        {MENU.map((el, i) => (
-          <SideNavList key={i} title={el} subMenu={SUB_MENU[i]['menus']} />
-        ))}
-      </MainMenu>
+      <NavScroll>
+        <MainMenu>
+          {MENU.map((el, i) => (
+            <SideNavList key={i} title={el} subMenu={SUB_MENU[i]['menus']} />
+          ))}
+        </MainMenu>
+      </NavScroll>
     </NavContainer>
   );
 };
@@ -34,11 +36,15 @@ const LogoBox = styled.h1`
   font-size: 2rem;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
 `;
+
+const NavScroll = styled.div`
+  height: 100%;
+  overflow-y: scroll;
+`;
+
 const MainMenu = styled.ul`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
-  overflow-y: scroll;
   padding-bottom: 5em;
 `;

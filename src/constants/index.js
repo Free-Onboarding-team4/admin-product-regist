@@ -11,6 +11,7 @@ export const STYLE = {
   BORDER: '1px solid #DDD',
   BORDER_BTN: `2px solid ${COLOR.MAIN}`,
   NAV_WIDTH: '14vw',
+  PADDING: '20px',
 };
 
 export const MENU = [

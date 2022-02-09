@@ -8,11 +8,11 @@ export const ImageUpload = ({ id }) => {
   const [imageList, setImageList] = useState([]);
 
   const handleUpload = e => {
-    const uploadedImage = e.target.files[0].name;
+    const uploadedImage = Array.from(e.target.files).map(file => file.name);
     if (id === 'thumbnail') {
-      setImageList([uploadedImage]);
+      setImageList(uploadedImage);
     } else {
-      setImageList([...imageList, uploadedImage].reverse());
+      setImageList([...imageList, ...uploadedImage].reverse());
     }
   };
 
@@ -30,6 +30,7 @@ export const ImageUpload = ({ id }) => {
           onChange={handleUpload}
           accept="image/*"
           style={{ display: 'none' }}
+          multiple={!(id === 'thumbnail')}
         />
         <AddButton htmlFor={id}>
           <RiAddLine />
